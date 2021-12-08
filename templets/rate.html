@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    </head>
+    <body>
+
+        <style type="text/css">
+            table, th, td{border: 1px solid black;}
+            /* style source: https://zetawiki.com/wiki/CSS_%ED%85%8C%EC%9D%B4%EB%B8%94_%EB%B2%88%ED%98%B8_%EB%B6%99%EC%9D%B4%EA%B8%B0 */
+            tbody>tr {counter-increment: aaa;}
+            tbody>tr>td:first-child:before {content: counter(aaa) " ";}
+            body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+            body {font-size:16px;}
+            .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+            .w3-half img:hover{opacity:1}
+        </style>
+
+		<!-- Sidebar/menu -->
+		<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+			<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+			<div class="w3-container">
+			<h3 class="w3-padding-64"><b>Air Ticket ✈ </b><br>Reservation</b></h3>
+			</div>
+			<div class="w3-bar-block">
+			<a href="/home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+			<a href="/register" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a> 
+			<a href="/rate" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rate Your Experience</a> 
+            <a href="/view_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View flights</a> 
+            <a href="/search_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Flights</a> 
+            </br></br></br></br></br></br></br></br>
+			<a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> 
+			<a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+			</div>
+		</nav>
+
+		<!-- PAGE CONTENT! -->
+		<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+			<!-- Header -->
+			<div class="w3-container" style="margin-top:80px" id="showcase">
+			<h1 class="w3-jumbo"><b>{{usr}}</b><br>How was your flight?</b></h1>
+			<h1 class="w3-xxxlarge w3-text-red"><b>Rate and Comment</b></h1>
+			<hr style="width:50px;border:5px solid red" class="w3-round">
+			</div>
+
+            <strong> Previous Flights </strong>
+                <table id='table'>
+                    <thead>
+                        <th>No.</th>
+                        <th>Email</th>
+                        <th>Airline</th>
+                        <th>Flight Number</th>
+                        <th>Departure Date</th>
+                        <th>Departure Time</th>
+                    </thead>
+                    
+                    <tbody>
+                        {% for line in data %}
+                            <tr>
+                                <td></td>
+                                <td class="row-data">{{line['customer_email']}}</td>
+                                <td class="row-data">{{line['airline_name']}}</td>
+                                <td class="row-data">{{line['flight_number']}}</td>
+                                <td class="row-data">{{line['departure_date']}}</td>
+                                <td class="row-data">{{line['departure_time']}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>>
+                </table>
+        
+
+            <form action="/select_prev_flight" method="POST">
+                <label class="rating-label">
+                    </br><strong>Rating</strong> </br>
+                    <input class="rating" name="rating" max="5" oninput="this.style.setProperty('--value', this.value)" step="0.5" type="range" value="1">
+                </label> </br></br>
+                <strong>Input row number for the flight you would like to comment on: </strong> </br>
+                <input type="text" name = "row_num" placeholder="Row number" required/> </br></br>
+                <strong>Comment</strong> </br>
+                <input type="text" name = "comment" style="width: 200px;" placeholder="comment" required/> </br></br>
+                <button type="submit" class="submit-rating">Submit</button> </br></br>
+                {% if error %}
+                    <p class="error"><strong>Error:</strong> {{error}}</p>
+                {% endif %}
+            </form>
+            </br>
+            </br>
+            <a href="/">Return</a>
+        </div>
+    </body>
+</html>

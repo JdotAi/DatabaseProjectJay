@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Your Scheduled Flights</h1>
+
+        <style type="text/css">
+            table, th, td{border: 1px solid black;}
+        </style>
+
+        <table>
+            <th>flight_number</th>
+            <th>airline_name</th>
+            <th>departure_airport_code</th>
+            <th>departure_date</th>
+            <th>departure_time</th>
+            <th>arrival_airport_code</th>
+            <th>arrival_date</th>
+            <th>arrival_time</th>
+            <!-- <tr>
+                <td>{{posts.username}}</td>
+                <td>{{posts.airline_name}}</td>
+            </tr> -->
+        {% for line in posts %}
+            <tr>
+                <td>{{line['flight_number']}}</td>
+                <td>{{line['airline_name']}}</td>
+                <td>{{line['departure_airport_code']}}</td>
+                <td>{{line['departure_date']}}</td>
+                <td>{{line['departure_time']}}</td>
+                <td>{{line['arrival_airport_code']}}</td>
+                <td>{{line['arrival_date']}}</td>
+                <td>{{line['arrival_time']}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <!-- <tr>
+                TOP DESTINATIONS ~~~~~~~~~~
+            </tr> -->
+            <h1>Top destinations</h1>
+            <style type="text/css">
+                table, th, td{border: 1px solid black;}
+            </style>
+    
+            
+                <table>
+                    <tr>
+                      <th>last_3_Months</th>
+                      <th>year_round</th>
+                    </tr>
+                    <tr>
+                      <td>Alfreds Futterkiste</td>
+                      <td>Germany</td>
+                    </tr>
+                    <tr>
+                      <td>Centro comercial Moctezuma</td>
+                      <td>Mexico</td>
+                    </tr>
+                  </table>
+            {% endfor %}
+            </table>
+            <!-- <tr>
+                    REVENUE EARNED ~~~~~~~~~~
+                </tr> -->
+                <h1>View Flight Rating </h1>
+                <style type="text/css">
+                    table, th, td{border: 1px solid black;}
+                </style>
+        
+                
+                <table>
+                    <tr>
+                    <th>last_months</th>
+                    <th>year_round</th>
+                    </tr>
+                    <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Germany</td>
+                    </tr>
+                    <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Mexico</td>
+                    </tr>
+                </table>
+                {% endfor %}
+                </table>
+                 <!-- <tr>
+                    REVENUE EARNED ~~~~~~~~~~
+                </tr> -->
+                <h1>Total Revenue Earned </h1>
+                <style type="text/css">
+                    table, th, td{border: 1px solid black;}
+                </style>
+        
+                
+                <table>
+                    <tr>
+                    <th>last_months</th>
+                    <th>year_round</th>
+                    </tr>
+                    <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Germany</td>
+                    </tr>
+                    <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Mexico</td>
+                    </tr>
+                </table>
+                {% endfor %}
+                </table>
+                <!-- <tr>
+                    REVENUE EARNED ~~~~~~~~~~
+                </tr> -->
+                <h1>Total Revenue Earned </h1>
+                <style type="text/css">
+                    table, th, td{border: 1px solid black;}
+                </style>
+        
+                
+                <table>
+                    <tr>
+                    <th>last_months</th>
+                    <th>year_round</th>
+                    </tr>
+                    <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Germany</td>
+                    </tr>
+                    <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Mexico</td>
+                    </tr>
+                </table>
+                {% endfor %}
+                </table>
+    </body>
+</html>

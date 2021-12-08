@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- HTML template source: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_interior_design&stacked=h -->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+        <script type="text/javascript">
+        function setForm(value) {
+            if(value == 'one-way'){
+                document.getElementById('one-way').style = 'display:block;';
+                document.getElementById('round-trip').style = 'display:none;';
+            }
+            else {
+                document.getElementById('round-trip').style = 'display:block;';
+                document.getElementById('one-way').style = 'display:none;';
+            }
+        }
+        </script>
+
+    </head>
+    <body>
+
+        <style type="text/css">
+            table, th, td{border: 1px solid black;}
+            /* style source: https://zetawiki.com/wiki/CSS_%ED%85%8C%EC%9D%B4%EB%B8%94_%EB%B2%88%ED%98%B8_%EB%B6%99%EC%9D%B4%EA%B8%B0 */
+            tbody>tr {counter-increment: aaa;}
+            tbody>tr>td:first-child:before {content: counter(aaa) " ";}
+            body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+            body {font-size:16px;}
+            .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+            .w3-half img:hover{opacity:1}
+        </style>
+
+		<!-- Sidebar/menu -->
+		<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+			<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+			<div class="w3-container">
+			<h3 class="w3-padding-64"><b>Air Ticket ✈ </b><br>Reservation</b></h3>
+			</div>
+			<div class="w3-bar-block">
+			<a href="/home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+			<a href="/register" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a> 
+			<a href="/rate" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rate Your Experience</a> 
+            <a href="/view_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View flights</a> 
+            <a href="/search_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Flights</a>
+            </br></br></br></br></br></br></br></br>
+			<a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> 
+			<a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+			</div>
+		</nav>
+
+		<!-- PAGE CONTENT! -->
+		<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+			<!-- Header -->
+			<div class="w3-container" style="margin-top:80px" id="showcase">
+                <h1 class="w3-jumbo"><b>{{usr}}</b></h1>
+                <h1 class="w3-xxxlarge w3-text-red"><b>Search for flights</b></h1>
+                <hr style="width:50px;border:5px solid red" class="w3-round">
+			</div>
+
+            <div id="one-way">
+                <form action="/search_flights" name="one-way" method="POST">
+                    <strong> Flying from </strong> </br>
+                    <input type="text" name = "departure" placeholder="Abu Dhabi or AUH" required/> </br></br>
+                    <strong>Flying to</strong> </br>
+                    <input type="text" name = "arrival" placeholder="Seoul or ICN" required/> </br></br>
+                    <strong>Outbound</strong> </br>
+                    <input type="text" name = "outbound" placeholder="2021-12-02" required/> </br></br>
+                    <submit name="one-way" value="Submit!"/> </br>
+                    <button type = "submit" name="one-way" value="one-way">Search Flight</button></br></br>
+                </form>
+            </div>
+
+            <div id="round-trip" style="display: none">
+                <form action="/search_flights" name="round-trip" method="POST">
+                    <strong> Flying from </strong> </br>
+                    <input type="text" name = "departure" placeholder="Abu Dhabi or AUH" required/> </br></br>
+                    <strong>Flying to</strong> </br>
+                    <input type="text" name = "arrival" placeholder="Seoul or ICN" required/> </br></br>
+                    <strong>Outbound</strong> </br>
+                    <input type="text" name = "outbound" placeholder="2021-12-02" required/> </br></br>
+                    <strong>Return</strong> </br>
+                    <input type="text" name = "return" placeholder="2021-12-25" required/> </br></br>
+                    <submit name="round-trip" value="Submit!"/> </br>
+                    <button type = "submit" name="round-trip" value="round-trip">Search Flight</button></br>
+                </form>
+            </div>
+
+            <form action="/search_flights" method="POST"></form>
+                <label>Select trip type</label>
+                <select name="trip_type" onchange="setForm(this.value)">
+                    <option value="one-way"> One Way </option>
+                    <option value="round-trip"> Round Trip </option>
+                </select>
+            </form> 
+
+            </br>
+            </br>
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{error}}</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<!-- HTML template source: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_interior_design&stacked=h -->
+	<html lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+	<style>
+		body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+		body {font-size:16px;}
+		.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+		.w3-half img:hover{opacity:1}
+		table, th, td{border: 1px solid black;}
+	</style>
+
+    <body>
+		<!-- Sidebar/menu -->
+		<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+			<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+			<div class="w3-container">
+			<h3 class="w3-padding-64"><b>Air Ticket ✈ </b><br>Reservation</b></h3>
+			</div>
+			<div class="w3-bar-block">
+			<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+			<a href="/register" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a> 
+			<a href="/rate" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rate Your Experience</a> 
+			<a href="/view_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View flights</a> 
+			<a href="/search_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Flights</a> 
+			</br></br></br></br></br></br></br></br>
+			<a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> 
+			<a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+			</div>
+		</nav>
+
+		<!-- PAGE CONTENT! -->
+		<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+			<!-- Header -->
+			<div class="w3-container" style="margin-top:80px" id="showcase">
+			<h1 class="w3-jumbo"><b>Welcome {{usr}}!</b></h1>
+			<h1 class="w3-xxxlarge w3-text-red">
+				{% if usertype == "customer" %}
+					<b>Your Homepage</b>
+				{% endif %}
+				{% if usertype == "staff" %}
+					<b>Thank you for being {airline}}'s family</b>
+				{% endif %}
+				
+			</h1>
+			<hr style="width:50px;border:5px solid red" class="w3-round">
+			</div>
+
+			<!-- Photo grid (modal) -->
+			<div class="w3-row-padding">
+				<div class="w3-half">
+				<img src="https://media.cntraveler.com/photos/59bbf34ba37bd274d06c25c9/16:9/w_2560%2Cc_limit/Lost-engine_GettyImages-163635465.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
+				<img src="https://cdn.vox-cdn.com/thumbor/xZOHNbUCspOU9E3Gj0PTx7aA7gs=/0x0:900x596/1200x800/filters:focal(378x226:522x370)/cdn.vox-cdn.com/uploads/chorus_image/image/67617661/Foto_Singapore_Airlines.0.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+				<img src="https://media.istockphoto.com/photos/woman-holding-her-passport-and-ticket-waiting-to-board-the-airplane-picture-id1178012936?k=20&m=1178012936&s=170667a&w=0&h=w-yVdXRn9MkfsClxfcqTfvXM12wr759c941XUB5F5ao=" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
+				</div>
+
+				<div class="w3-half">
+				<img src="https://www.jal.co.jp/jp/ja/commonY20/img_sites/bg_omotenashi_sp.png" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
+				<img src="https://images.theconversation.com/files/329398/original/file-20200421-82650-1lnw92a.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
+				<img src="https://images.unsplash.com/photo-1550388950-6655ec9a58ed?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
+				</div>
+			</div>
+
+		</div>
+		{% if error %}
+			<p class="error"><strong>Error:</strong> {{error}}</p>
+		{% endif %}
+    </body>
+</html>

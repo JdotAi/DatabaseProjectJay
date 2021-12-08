@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- HTML template source: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_interior_design&stacked=h -->
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<script type="text/javascript">
+function setForm(value) {
+    if(value == 'customer'){
+        document.getElementById('customer').style='display:block;';
+        document.getElementById('staff').style='display:none;';
+    }
+    else {
+		document.getElementById('staff').style = 'display:block;';
+        document.getElementById('customer').style = 'display:none;';
+	}
+}
+</script>
+</head>
+
+<style>
+	body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+	body {font-size:16px;}
+	.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+	.w3-half img:hover{opacity:1}
+	table, th, td{border: 1px solid black;}
+</style>
+
+<body>
+	<!-- Sidebar/menu -->
+	<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+		<div class="w3-container">
+		<h3 class="w3-padding-64"><b>Air Ticket ✈ </b><br>Reservation</b></h3>
+		</div>
+		<div class="w3-bar-block">
+		<a href="/home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+		<a href="/register" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a> 
+		<a href="/rate" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rate Your Experience</a> 
+		<a href="/view_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View flights</a> 
+		<a href="/search_flights" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Flights</a> 
+		</br></br></br></br></br></br></br></br>
+		<a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> 
+		<a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+		</div>
+	</nav>
+
+	<!-- PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+		<!-- Header -->
+		<div class="w3-container" style="margin-top:80px" id="showcase">
+		<h1 class="w3-jumbo"><b>Sign Up</b></h1>
+		<h1 class="w3-xxxlarge w3-text-red"><b>Create an account</b></h1>
+		<hr style="width:50px;border:5px solid red" class="w3-round">
+		</div>
+
+		<div id="customer" style="display: none">
+			<label> Customer Registration </label>
+			<form action="/register", name="customer", method="POST">
+				<input type="email" name = "email" placeholder="email" required/> </br>
+				<input type="text" name = "username" placeholder="full name" required/> </br>
+				<input type="password" name = "password" placeholder="password" required/></br>
+				<input type="address" name = "address" placeholder="address" required/></br>
+				<input type="phone" name = "phone" placeholder="phone number" required/></br>
+				<input type="passport" name = "passport" placeholder="passport number" required/></br>
+				<input type="passport_ex" name = "passport_ex" placeholder="passport expiration date" required/></br>
+				<input type="passport_country" name = "passport_country" placeholder="passport country" required/></br>
+				<input type="DoB" name = "DoB" placeholder="date of birth" required/></br>
+				<submit name="customer" value="Submit!"/> </br>
+				<input type="submit" value = Register />
+				{% if error %}
+					<p class="error"><strong>Error:</strong> {{error}}</p>
+				{% endif %}
+			</form>
+		</div>
+
+		<div id="staff">
+			<label>Staff Registration</label>
+			<form action="/register", name="staff", method="POST">
+				<input type="f_name" name = "f_name" placeholder="first name" required/> </br>
+				<input type="l_name" name = "l_name" placeholder="last name" required/> </br>
+				<input type="username" name = "username" placeholder="username" required/> </br>
+				<input type="password" name = "password" placeholder="password" required/> </br>
+				<input type="airline_name" name = "airline_name" placeholder="airline name" required/> </br>
+				<input type="DoB" name = "DoB" placeholder="date of birth" required/> </br>
+				<submit name="staff" value="Submit!"/> </br>
+				<input type="submit" value = Register />
+				{% if error %}
+					<p class="error"><strong>Error:</strong> {{error}}</p>
+				{% endif %}
+			</form>
+		</div>
+
+		<form action="/register" method="POST">
+			<label>Select user type</label>
+			<select name="user_type" onchange="setForm(this.value)">
+				<option value="customer"> Customer </option>
+				<option value="staff"> Staff </option>
+			</select>
+		</form>
+	</div>
+</body>
+</html>
