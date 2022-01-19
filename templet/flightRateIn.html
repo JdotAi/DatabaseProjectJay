@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    </head>
+
+    <body>
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <header>Please add the details of the airport that you want to add below</header></br></br>
+        
+        <form action="/flightRateIn" method="POST">
+            <input type="number" name = "flight_number" placeholder="Flight Number" /> </br></br>
+            <input type="submit" value = "Add NOW" />
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{error}}</p>
+            {% endif %}
+        </form>
+        </br></br>
+        <a href="/flightRating">Return</a>
+    </body>
+
+
+</html>

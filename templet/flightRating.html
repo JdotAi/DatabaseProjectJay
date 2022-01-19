@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    </head>
+
+    <body>
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+<h1>Flight Rating</h1>    
+        <table>
+            <th>Flight Number</th>
+            <!-- <th>Rating</th> -->
+        {% for line in flight %}
+            <tr>
+                <td>{{flight}}</td>
+                <!-- <td>{{avg_rate}}</td>  -->
+            </tr>
+        </table>
+
+    <!-- <h2> Comments </h2>
+    <table>
+        <th>Comments</th>
+
+    {% for line in customComment %}
+        <tr>
+            <td>{{line['customer_experience_comment']}}</td>
+        </tr>
+    {% endfor %}
+    </table> -->
+    </body>
+
+
+</html>
